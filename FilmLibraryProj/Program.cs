@@ -19,6 +19,10 @@ namespace FilmLibraryProj
             MySqlConnection connection = new MySqlConnection(connString);
             connection.Open();
 
+            String queryString = "CREATE TABLE IF NOT EXISTS Films (FilmID int, movieName char(50), movieGenre char(50), movieRating int)";
+            MySqlCommand command = new MySqlCommand(queryString, connection);
+            command.BeginExecuteNonQuery();
+
             while (true)
             {
                 Console.WriteLine("Please enter a movie name, genre and rating");
